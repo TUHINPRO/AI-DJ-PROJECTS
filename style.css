@@ -1,0 +1,77 @@
+.heading { 
+    width:100%;
+    margin:0px;
+    font-size: 23px;
+}
+ 
+body{
+    background:cover;
+}
+
+.note {
+    color:whitesmoke;
+    font-size:16px;
+    font-weight: bold;
+}
+
+.div_speed{
+    float:left;
+}
+
+.div_img{
+    width:200px;
+    border-radius:75px;
+}
+#speed,#volume {
+    margin:20px;
+    font-size:22px;
+
+}
+
+.div_volume {
+    float:right;
+}.heading { 
+    width:100%;
+    margin:0px;
+    font-size: 23px;
+}
+ 
+body{
+    background:cover;
+}
+
+.note {
+    color:whitesmoke;
+    font-size:16px;
+    font-weight: bold;
+}
+
+.div_speed{
+    float:left;
+}
+
+.div_img{
+    width:200px;
+    border-radius:75px;
+}
+#speed,#volume {
+    margin:20px;
+    font-size:22px;
+
+}
+
+.div_volume {
+    float:right;
+}
+
+canvas{
+    border-radius:20px;
+    border:5px dashed red;
+    padding:2px;
+}
+
+.play {
+    font-size:30px;
+    padding:5px;
+
+}
