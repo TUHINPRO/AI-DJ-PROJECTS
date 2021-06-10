@@ -1,4 +1,4 @@
-var song="";
+song="";
  leftWristX=0;
  leftWristY=0;
 rightWristX=0;
@@ -7,7 +7,7 @@ scoreLeftWrist=0;
 scoreRightWrist=0;
 
  function preload() {
-     song=loadSound("music.mp3");
+ song=loadSound("music.mp3");
  }
 
  function setup() {
@@ -19,6 +19,17 @@ scoreRightWrist=0;
      posenet=ml5.poseNet(video,modelLoaded);
      posenet.on('pose',gotPoses);
  }
+
+ function gotPoses(results) {
+    if (results.length>0) {
+        console.log(results);
+        leftWristX=results[0].pose.leftWrist.x;
+        leftWristY=results[0].pose.leftWrist.y;
+        rightWristX=results[0].pose.rightWrist.x;
+        rightWristY=results[0].pose.rightWrist.y;
+        scoreLeftWrist=results[0].pose.keypoints[9].score;
+        scoreRightWrist=results[0].pose.keypoints[10].score;
+    }}
 
  function draw() {
      image(video,0,0,500,500);
@@ -69,18 +80,9 @@ scoreRightWrist=0;
      console.log("Posenet is loaded etc");
  }
 
- function gotPoses(results) {
- if (results.length>0) {
-     console.log(results);
-     leftWristX=results[0].pose.leftWrist.x;
-     leftWristY=results[0].pose.leftWrist.y;
-     rightWristX=results[0].pose.rightWrist.x;
-     rightWristY=results[0].pose.rightWrist.y;
-     scoreLeftWrist=results[0].pose.keypoints[9].score;
-     scoreRightWrist=results[0].pose.keypoints[10].score;
- }
+ 
 
- }
+ 
 function playsong() {
      song.play();
     song.setVolume(1);
