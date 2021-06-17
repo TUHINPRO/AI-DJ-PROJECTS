@@ -8,6 +8,7 @@ scoreRightWrist=0;
 
  function preload() {
  song=loadSound("music.mp3");
+ song1=loadSound("music2.mp3");
  }
 
  function setup() {
@@ -43,33 +44,16 @@ scoreRightWrist=0;
       volume=remove_decimals/500;
       document.getElementById("volume").innerHTML= "Volume = "+ volume;
       song.setVolume(volume);
+      song1.setVolume(0);
   }
   if(scoreRightWrist>0.2) {
       circle(rightWristX,rightWristY,20);
-
-      if(rightWristY>0 && rightWristY<=100){
-          song.rate(0.5);
-          document.getElementById("speed").innerHTML="Speed = 0.5";
-      }
-      
-      else if(rightWristY>100 && rightWristY<=200){
-        song.rate(1);
-        document.getElementById("speed").innerHTML="Speed = 1";
-        
-    }
-    else if(rightWristY>200 && rightWristY<=300){
-        song.rate(1.5);
-        document.getElementById("speed").innerHTML="Speed = 1.5";
-    }
-    else if(rightWristY>300 && rightWristY<=400){
-        song.rate(2);
-        document.getElementById("speed").innerHTML="Speed = 2";
-    }
-
-    else if(rightWristY>400 && rightWristY<=500){
-        song.rate(2.5);
-        document.getElementById("speed").innerHTML="Speed = 2.5";
-    }
+      NumberRightWristX=Number(rightWristY);
+      remove_decimals=floor(NumberRightWristX);
+      volume=remove_decimals/500;
+      document.getElementById("volume").innerHTML= "Volume = "+ volume;
+      song.setVolume(0);
+      song1.setVolume(volume);
 
   }
      
@@ -85,6 +69,9 @@ scoreRightWrist=0;
  
 function playsong() {
      song.play();
+     song1.play();
+     song1.setVolume(0);
     song.setVolume(1);
     song.rate(1);
+    song1.rate(1);
  }
